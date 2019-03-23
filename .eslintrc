@@ -1,0 +1,24 @@
+{
+    "extends": ["airbnb", "prettier", "prettier/react", "react-app"],
+    "plugins": ["prettier"],
+    "rules": {
+      "react/jsx-filename-extension": [
+        1,
+        {
+          "extensions": [".js", ".jsx"]
+        }
+      ],
+      "import/imports-first": ["error", "absolute-first"],
+      "import/newline-after-import": "error"
+    },
+    "globals": {
+      "window": true,
+      "document": true,
+      "localStorage": true,
+      "FormData": true,
+      "FileReader": true,
+      "Blob": true,
+      "navigator": true
+    },
+    "parser": "babel-eslint"
+  }
