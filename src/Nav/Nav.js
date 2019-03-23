@@ -24,7 +24,7 @@ const Nav = ({ setCartOpen, cartOpen }) => {
         store
       </NavButton>
       <NavButton onClick={() => setCartOpen(!cartOpen)} type="button">
-        {cartOpen ? "x" : "cart"}
+        {cartOpen ? "X" : "cart"}
       </NavButton>
     </NavStyles>
   );
