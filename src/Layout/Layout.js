@@ -10,14 +10,16 @@ const theme = {
 };
 
 const LayoutStyles = styled.div`
-  background: lightsteelblue;
+  border: 1px solid lightsteelblue;
   max-width: ${props => props.theme.maxWidth};
   margin: 0 auto;
   padding: ${props => props.theme.gutter};
+  display: flex;
+  flex-direction: column;
   font-size: 1.6rem;
 
   @media (${props => props.theme.wideMedia}) {
-    background: lightcoral;
+    border: 1px solid lightcoral;
   }
 `;
 
