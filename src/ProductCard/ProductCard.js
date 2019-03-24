@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { updateItem, updateList } from "../utils/utils";
 
 const ProductCardStyles = styled.div`
   border: 1px solid darkgrey;
@@ -37,37 +38,33 @@ const ProductCard = ({
   setCartContents
 }) => {
   const handleAdd = id => {
-    const cartIndex = cartContents.findIndex(item => item.id === id);
-    const updateIndex = inventory.findIndex(item => item.id === id);
-    const updatedItem = {
-      ...inventory[updateIndex],
-      quantity: inventory[updateIndex].quantity - 1
-    };
-    const updatedInventory = [
-      ...inventory.slice(0, updateIndex),
-      updatedItem,
-      ...inventory.slice(updateIndex + 1)
-    ];
+    const cartItemIndex = cartContents.findIndex(item => item.id === id);
+    const inventoryItemIndex = inventory.findIndex(item => item.id === id);
+
+    // Update inventory
+    const updatedInventoryItem = updateItem(inventory, inventoryItemIndex, -1);
+
+    const updatedInventory = updateList(
+      inventory,
+      inventoryItemIndex,
+      updatedInventoryItem
+    );
 
     setInventory(updatedInventory);
 
-    if (cartIndex === -1) {
-      const newCartItem = {
-        ...inventory[updateIndex],
-        quantity: 1
-      };
+    // Update cart
+    if (cartItemIndex === -1) {
+      const newCartItem = updateItem(inventory, inventoryItemIndex);
+
       setCartContents([...cartContents, newCartItem]);
     } else {
-      const updatedCartItem = {
-        ...cartContents[cartIndex],
-        quantity: cartContents[cartIndex].quantity + 1
-      };
+      const updatedCartItem = updateItem(cartContents, cartItemIndex, 1);
 
-      const updatedCart = [
-        ...cartContents.slice(0, cartIndex),
-        updatedCartItem,
-        ...cartContents.slice(cartIndex + 1)
-      ];
+      const updatedCart = updateList(
+        cartContents,
+        cartItemIndex,
+        updatedCartItem
+      );
 
       setCartContents(updatedCart);
     }

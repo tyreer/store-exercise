@@ -5,7 +5,7 @@ import CartItem from "../CartItem/CartItem";
 const CartStyles = styled.section`
   min-height: 100vh;
   flex: 1;
-  background: red;
+  background: lightgoldenrodyellow;
   padding: ${props => props.theme.gutter};
 `;
 

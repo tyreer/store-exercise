@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { updateItem, updateList } from "../utils/utils";
 
 const CartItemStyles = styled.div`
   border: 1px solid darkgrey;
@@ -27,8 +28,6 @@ const CartItemStyles = styled.div`
   }
 `;
 
-// TODO: Pass in category as prop to determine background gradient
-
 const CartItem = ({
   product,
   inventory,
@@ -37,27 +36,26 @@ const CartItem = ({
   setCartContents
 }) => {
   const handleRemove = id => {
-    const cartIndex = cartContents.findIndex(item => item.id === id);
+    const cartItemIndex = cartContents.findIndex(item => item.id === id);
+    const inventoryItemIndex = inventory.findIndex(item => item.id === id);
 
     // Update inventory
-    const updateIndex = inventory.findIndex(item => item.id === id);
-    const updatedItem = {
-      ...inventory[updateIndex],
-      quantity:
-        inventory[updateIndex].quantity + cartContents[cartIndex].quantity
-    };
-    const updatedInventory = [
-      ...inventory.slice(0, updateIndex),
-      updatedItem,
-      ...inventory.slice(updateIndex + 1)
-    ];
+    const updatedInventoryItem = updateItem(
+      inventory,
+      inventoryItemIndex,
+      cartContents[cartItemIndex].quantity
+    );
+
+    const updatedInventory = updateList(
+      inventory,
+      inventoryItemIndex,
+      updatedInventoryItem
+    );
 
     setInventory(updatedInventory);
 
-    const updatedCartContents = [
-      ...cartContents.slice(0, cartIndex),
-      ...cartContents.slice(cartIndex + 1)
-    ];
+    // Update cart
+    const updatedCartContents = updateList(cartContents, cartItemIndex);
 
     setCartContents(updatedCartContents);
   };
