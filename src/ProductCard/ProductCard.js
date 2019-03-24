@@ -51,8 +51,12 @@ const ProductCard = ({ product, inventory, setInventory }) => {
         <span>{product.color}</span>
         <span>{product.category}</span>
       </div>
-      <button type="button" onClick={() => handleAdd(product.id)}>
-        add to cart
+      <button
+        type="button"
+        disabled={product.quantity === 0}
+        onClick={() => handleAdd(product.id)}
+      >
+        {product.quantity === 0 ? "out of stock" : "add to cart"}
       </button>
     </ProductCardStyles>
   );
