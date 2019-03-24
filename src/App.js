@@ -9,13 +9,26 @@ import mockData from "./mock-data";
 const App = () => {
   const [cartOpen, setCartOpen] = useState(false);
   const [inventory, setInventory] = useState(mockData);
+  const [cartContents, setCartContents] = useState([]);
   return (
     <Layout>
       <Nav setCartOpen={setCartOpen} cartOpen={cartOpen} />
       {!cartOpen && (
-        <ProductList inventory={inventory} setInventory={setInventory} />
+        <ProductList
+          inventory={inventory}
+          setInventory={setInventory}
+          setCartContents={setCartContents}
+          cartContents={cartContents}
+        />
       )}
-      {cartOpen && <Cart setInventory={setInventory} />}
+      {cartOpen && (
+        <Cart
+          inventory={inventory}
+          setInventory={setInventory}
+          setCartContents={setCartContents}
+          cartContents={cartContents}
+        />
+      )}
     </Layout>
   );
 };

@@ -10,7 +10,12 @@ const ProductListStyles = styled.div`
   }
 `;
 
-const ProductList = ({ inventory, setInventory }) => {
+const ProductList = ({
+  inventory,
+  setInventory,
+  cartContents,
+  setCartContents
+}) => {
   return (
     <ProductListStyles>
       {inventory.map(product => (
@@ -19,6 +24,8 @@ const ProductList = ({ inventory, setInventory }) => {
           product={product}
           setInventory={setInventory}
           inventory={inventory}
+          cartContents={cartContents}
+          setCartContents={setCartContents}
         />
       ))}
     </ProductListStyles>

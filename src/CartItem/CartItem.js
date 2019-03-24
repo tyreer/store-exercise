@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const ProductCardStyles = styled.div`
+const CartItemStyles = styled.div`
   border: 1px solid darkgrey;
   padding: ${props => props.theme.gutter};
   margin-bottom: ${props => props.theme.gutter};
@@ -29,19 +29,22 @@ const ProductCardStyles = styled.div`
 
 // TODO: Pass in category as prop to determine background gradient
 
-const ProductCard = ({
+const CartItem = ({
   product,
   inventory,
   setInventory,
   cartContents,
   setCartContents
 }) => {
-  const handleAdd = id => {
+  const handleRemove = id => {
     const cartIndex = cartContents.findIndex(item => item.id === id);
+
+    // Update inventory
     const updateIndex = inventory.findIndex(item => item.id === id);
     const updatedItem = {
       ...inventory[updateIndex],
-      quantity: inventory[updateIndex].quantity - 1
+      quantity:
+        inventory[updateIndex].quantity + cartContents[cartIndex].quantity
     };
     const updatedInventory = [
       ...inventory.slice(0, updateIndex),
@@ -51,44 +54,31 @@ const ProductCard = ({
 
     setInventory(updatedInventory);
 
-    if (cartIndex === -1) {
-      const newCartItem = {
-        ...inventory[updateIndex],
-        quantity: 1
-      };
-      setCartContents([...cartContents, newCartItem]);
-    } else {
-      const updatedCartItem = {
-        ...cartContents[cartIndex],
-        quantity: cartContents[cartIndex].quantity + 1
-      };
+    const updatedCartContents = [
+      ...cartContents.slice(0, cartIndex),
+      ...cartContents.slice(cartIndex + 1)
+    ];
 
-      const updatedCart = [
-        ...cartContents.slice(0, cartIndex),
-        updatedCartItem,
-        ...cartContents.slice(cartIndex + 1)
-      ];
-
-      setCartContents(updatedCart);
-    }
+    setCartContents(updatedCartContents);
   };
 
   return (
-    <ProductCardStyles>
+    <CartItemStyles>
       <h2>{product.name}</h2>
       <div>
         <span>{product.color}</span>
         <span>{product.category}</span>
       </div>
+      <span>{`Quantity: ${product.quantity}`}</span>
       <button
         type="button"
         disabled={product.quantity === 0}
-        onClick={() => handleAdd(product.id)}
+        onClick={() => handleRemove(product.id)}
       >
-        {product.quantity === 0 ? "out of stock" : "add to cart"}
+        remove
       </button>
-    </ProductCardStyles>
+    </CartItemStyles>
   );
 };
 
-export default ProductCard;
+export default CartItem;
