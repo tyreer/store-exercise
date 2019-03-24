@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import CartItem from "../CartItem/CartItem";
+import { formatCurrency } from "../utils/utils";
 
 const CartStyles = styled.section`
   min-height: 100vh;
@@ -10,6 +11,11 @@ const CartStyles = styled.section`
 `;
 
 const Cart = ({ inventory, setInventory, cartContents, setCartContents }) => {
+  const total = cartContents.reduce(
+    (sum, cartItem) => sum + cartItem.price * cartItem.quantity,
+    0
+  );
+
   return (
     <CartStyles>
       <h1>Cart</h1>
@@ -23,6 +29,7 @@ const Cart = ({ inventory, setInventory, cartContents, setCartContents }) => {
           setCartContents={setCartContents}
         />
       ))}
+      <p>{`Cart total: ${formatCurrency(total)}`}</p>
     </CartStyles>
   );
 };

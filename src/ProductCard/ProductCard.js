@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { updateItem, updateList } from "../utils/utils";
+import { updateItem, updateList, formatCurrency } from "../utils/utils";
 
 const ProductCardStyles = styled.div`
   border: 1px solid darkgrey;
@@ -75,6 +75,7 @@ const ProductCard = ({
       <h2>{product.name}</h2>
       <div>
         <span>{product.color}</span>
+        <span>{formatCurrency(product.price)}</span>
         <span>{product.category}</span>
       </div>
       <button

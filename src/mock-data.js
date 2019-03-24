@@ -4,7 +4,7 @@ export default [
     name: "Almond Toe Court Shoes",
     color: "Patent Black",
     category: "Women’s Footwear",
-    price: "£99.00",
+    price: 9900,
     quantity: 5
   },
   {
@@ -12,7 +12,7 @@ export default [
     name: "Suede Shoes",
     color: "Blue ",
     category: "Women’s Footwear",
-    price: "£42.00",
+    price: 4200,
     quantity: 4
   },
   {
@@ -20,7 +20,7 @@ export default [
     name: "Leather Driver Saddle Loafers",
     color: "Tan",
     category: "Men’s Footwear",
-    price: "£34.00",
+    price: 3400,
     quantity: 12
   },
   {
@@ -28,7 +28,7 @@ export default [
     name: "Flip Flops",
     color: "Red",
     category: "Men’s Footwear",
-    price: "£19.00",
+    price: 1900,
     quantity: 6
   },
   {
@@ -36,7 +36,7 @@ export default [
     name: "Flip Flops",
     color: "Blue",
     category: "Men’s Footwear",
-    price: "£19.00",
+    price: 1900,
     quantity: 0
   },
   {
@@ -44,7 +44,7 @@ export default [
     name: "Gold Button Cardigan",
     color: "Black",
     category: "Women’s Casualwear",
-    price: "£167.00",
+    price: 16700,
     quantity: 6
   },
   {
@@ -52,7 +52,7 @@ export default [
     name: "Cotton Shorts",
     color: "Medium",
     category: "Red Women’s Casualwear",
-    price: "£30.00",
+    price: 3000,
     quantity: 5
   },
   {
@@ -60,7 +60,7 @@ export default [
     name: "Fine Stripe Short Sleeve Shirt",
     color: "Grey",
     category: "Men’s Casualwear",
-    price: "£49.99",
+    price: 4999,
     quantity: 9
   },
   {
@@ -68,7 +68,7 @@ export default [
     name: "Sharkskin Waistcoat",
     color: "Charcoal",
     category: "Men’s Formalwear",
-    price: "£75.00",
+    price: 7500,
     quantity: 2
   },
   {
@@ -76,7 +76,7 @@ export default [
     name: "Lightweight Patch Pocket Blazer",
     color: "Deer",
     category: "Men’s Formalwear",
-    price: "£175.50",
+    price: 17550,
     quantity: 1
   },
   {
@@ -84,7 +84,7 @@ export default [
     name: "Bird Print Dress",
     color: "Black",
     category: "Women’s Formalwear",
-    price: "£270.00",
+    price: 27000,
     quantity: 10
   },
   {
@@ -92,7 +92,7 @@ export default [
     name: "Mid Twist Cut-Out Dress",
     color: "Pink",
     category: "Women’s Formalwear",
-    price: "£540.00",
+    price: 54000,
     quantity: 5
   },
   {
@@ -100,7 +100,7 @@ export default [
     name: "Shirt",
     color: "Green",
     category: "Men’s Casualwear",
-    price: "£49.99 £39.99",
+    price: 3999,
     quantity: 3
   }
 ];
