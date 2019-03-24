@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import mockData from "../mock-data";
 import ProductCard from "../ProductCard/ProductCard";
 
 const ProductListStyles = styled.div`
@@ -11,11 +10,16 @@ const ProductListStyles = styled.div`
   }
 `;
 
-const ProductList = () => {
+const ProductList = ({ inventory, setInventory }) => {
   return (
     <ProductListStyles>
-      {mockData.map(product => (
-        <ProductCard key={product.id} product={product} />
+      {inventory.map(product => (
+        <ProductCard
+          key={product.id}
+          product={product}
+          setInventory={setInventory}
+          inventory={inventory}
+        />
       ))}
     </ProductListStyles>
   );

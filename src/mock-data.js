@@ -5,7 +5,7 @@ export default [
     color: "Patent Black",
     category: "Women’s Footwear",
     price: "£99.00",
-    quantity: "5"
+    quantity: 5
   },
   {
     id: 2,
@@ -13,7 +13,7 @@ export default [
     color: "Blue ",
     category: "Women’s Footwear",
     price: "£42.00",
-    quantity: "4"
+    quantity: 4
   },
   {
     id: 3,
@@ -21,7 +21,7 @@ export default [
     color: "Tan",
     category: "Men’s Footwear",
     price: "£34.00",
-    quantity: "12"
+    quantity: 12
   },
   {
     id: 4,
@@ -29,7 +29,7 @@ export default [
     color: "Red",
     category: "Men’s Footwear",
     price: "£19.00",
-    quantity: "6"
+    quantity: 6
   },
   {
     id: 5,
@@ -37,7 +37,7 @@ export default [
     color: "Blue",
     category: "Men’s Footwear",
     price: "£19.00",
-    quantity: "0"
+    quantity: 0
   },
   {
     id: 6,
@@ -45,7 +45,7 @@ export default [
     color: "Black",
     category: "Women’s Casualwear",
     price: "£167.00",
-    quantity: "6"
+    quantity: 6
   },
   {
     id: 7,
@@ -53,7 +53,7 @@ export default [
     color: "Medium",
     category: "Red Women’s Casualwear",
     price: "£30.00",
-    quantity: "5"
+    quantity: 5
   },
   {
     id: 8,
@@ -61,7 +61,7 @@ export default [
     color: "Grey",
     category: "Men’s Casualwear",
     price: "£49.99",
-    quantity: "9"
+    quantity: 9
   },
   {
     id: 9,
@@ -69,7 +69,7 @@ export default [
     color: "Charcoal",
     category: "Men’s Formalwear",
     price: "£75.00",
-    quantity: "2"
+    quantity: 2
   },
   {
     id: 10,
@@ -77,7 +77,7 @@ export default [
     color: "Deer",
     category: "Men’s Formalwear",
     price: "£175.50",
-    quantity: "1"
+    quantity: 1
   },
   {
     id: 11,
@@ -85,7 +85,7 @@ export default [
     color: "Black",
     category: "Women’s Formalwear",
     price: "£270.00",
-    quantity: "10"
+    quantity: 10
   },
   {
     id: 12,
@@ -93,7 +93,7 @@ export default [
     color: "Pink",
     category: "Women’s Formalwear",
     price: "£540.00",
-    quantity: "5"
+    quantity: 5
   },
   {
     id: 13,
@@ -101,6 +101,6 @@ export default [
     color: "Green",
     category: "Men’s Casualwear",
     price: "£49.99 £39.99",
-    quantity: "3"
+    quantity: 3
   }
 ];
