@@ -4,7 +4,7 @@ import styled, { ThemeProvider } from "styled-components";
 import GlobalStyles from "./GlobalStyles";
 
 const theme = {
-  wideMedia: "min-width: 600px",
+  wideMedia: "min-width: 700px",
   maxWidth: "1000px",
   gutter: "2rem"
 };
