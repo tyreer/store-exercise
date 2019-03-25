@@ -18,6 +18,7 @@ const ProductList = ({
 }) => {
   return (
     <ProductListStyles>
+      <h1>Products</h1>
       {inventory.map(product => (
         <ProductCard
           key={product.id}

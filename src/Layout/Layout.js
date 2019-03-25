@@ -5,7 +5,8 @@ import styled, { ThemeProvider } from "styled-components";
 const theme = {
   wideMedia: "min-width: 700px",
   maxWidth: "1000px",
-  gutter: "2rem"
+  gutter: "2rem",
+  buttonWidth: "100px"
 };
 
 const LayoutStyles = styled.div`

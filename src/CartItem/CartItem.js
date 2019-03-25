@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { updateItem, updateList } from "../utils/utils";
+import { updateItem, updateList, formatCurrency } from "../utils/utils";
 
 const CartItemStyles = styled.div`
   border: 1px solid darkgrey;
@@ -14,13 +14,13 @@ const CartItemStyles = styled.div`
   div {
     display: flex;
     justify-content: space-between;
-    margin-bottom: ${props => props.theme.gutter};
   }
 
   button {
-    width: 100px;
+    width: ${props => props.theme.buttonWidth};
     padding: 10px;
     margin-left: auto;
+    margin-top: ${props => props.theme.gutter};
     display: block;
     background: darkgray;
     color: white;
@@ -33,7 +33,9 @@ const CartItem = ({
   inventory,
   setInventory,
   cartContents,
-  setCartContents
+  setCartContents,
+  cartTotal,
+  setCartTotal
 }) => {
   const handleRemove = id => {
     const cartItemIndex = cartContents.findIndex(item => item.id === id);
@@ -58,14 +60,21 @@ const CartItem = ({
     const updatedCartContents = updateList(cartContents, cartItemIndex);
 
     setCartContents(updatedCartContents);
+    setCartTotal(
+      cartTotal -
+        cartContents[cartItemIndex].price * cartContents[cartItemIndex].quantity
+    );
   };
 
   return (
     <CartItemStyles>
       <h2>{product.name}</h2>
       <div>
-        <span>{product.color}</span>
         <span>{product.category}</span>
+      </div>
+      <div>
+        <span>{product.color}</span>
+        <span>{formatCurrency(product.price)}</span>
       </div>
       <span>{`Quantity: ${product.quantity}`}</span>
       <button

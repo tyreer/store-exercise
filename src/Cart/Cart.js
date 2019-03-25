@@ -21,7 +21,7 @@ const Cart = ({ inventory, setInventory, cartContents, setCartContents }) => {
 
   return (
     <CartStyles>
-      <h1>Cart</h1>
+      <h1>Your cart</h1>
       {cartContents.map(product => (
         <CartItem
           key={product.id}
@@ -30,6 +30,8 @@ const Cart = ({ inventory, setInventory, cartContents, setCartContents }) => {
           inventory={inventory}
           cartContents={cartContents}
           setCartContents={setCartContents}
+          cartTotal={cartTotal}
+          setCartTotal={setCartTotal}
         />
       ))}
       <Voucher
