@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import CartItem from "../CartItem/CartItem";
 import { formatCurrency } from "../utils/utils";
+import Voucher from "../Voucher/Voucher";
 
 const CartStyles = styled.section`
   min-height: 100vh;
@@ -11,10 +12,12 @@ const CartStyles = styled.section`
 `;
 
 const Cart = ({ inventory, setInventory, cartContents, setCartContents }) => {
-  const total = cartContents.reduce(
+  const intialTotal = cartContents.reduce(
     (sum, cartItem) => sum + cartItem.price * cartItem.quantity,
     0
   );
+
+  const [cartTotal, setCartTotal] = useState(intialTotal);
 
   return (
     <CartStyles>
@@ -29,7 +32,12 @@ const Cart = ({ inventory, setInventory, cartContents, setCartContents }) => {
           setCartContents={setCartContents}
         />
       ))}
-      <p>{`Cart total: ${formatCurrency(total)}`}</p>
+      <Voucher
+        cartContents={cartContents}
+        cartTotal={cartTotal}
+        setCartTotal={setCartTotal}
+      />
+      <p>{`Cart total: ${formatCurrency(cartTotal)}`}</p>
     </CartStyles>
   );
 };
