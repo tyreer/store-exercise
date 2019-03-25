@@ -19,7 +19,7 @@ const ProductCardStyles = styled.div`
 
   button {
     width: ${props => props.theme.buttonWidth};
-    padding: 10px;
+    padding: 1rem;
     margin-left: auto;
     display: block;
     background: darkgray;

@@ -1,7 +1,22 @@
 import React, { useState } from "react";
 import { formatCurrency } from "../utils/utils";
+import styled from "styled-components";
 
 const VoucherForm = ({ cartTotal, setCartTotal, cartContents }) => {
+  const VoucherFormStyles = styled.div`
+    input {
+      margin: ${props => props.theme.gutter};
+      padding: 0.5rem;
+      border: 1px solid black;
+    }
+    button {
+      padding: 1rem;
+      display: block;
+      background: black;
+      color: white;
+    }
+  `;
+
   const [applied, setApplied] = useState(false);
   const [formValue, setFormValue] = useState("");
   const [formValid, setFormValid] = useState(false);
@@ -67,19 +82,24 @@ const VoucherForm = ({ cartTotal, setCartTotal, cartContents }) => {
   );
 
   return (
-    <>
+    <VoucherFormStyles>
       {voucherCondition5 && !formValid && (
-        <p>
-          {`You qualify for a ${formatCurrency(voucherDiscount)} discount. Use
+        <>
+          <p>
+            {`You qualify for a ${formatCurrency(voucherDiscount)} discount.`}
+          </p>
+          <p>
+            {`Use
           code: ${discountCode}`}
-        </p>
+          </p>
+        </>
       )}
       {applied && <p>{postSubmitMessage}</p>}
 
       {cartTotal > 0 && (
-        <form onSubmit={handleSubmit}>
+        <form className="form" onSubmit={handleSubmit}>
           <label htmlFor="voucher">
-            Voucher:
+            Voucher code:
             <input
               id="voucher"
               type="text"
@@ -92,11 +112,11 @@ const VoucherForm = ({ cartTotal, setCartTotal, cartContents }) => {
             onClick={e => handleSubmit(e)}
             disabled={applied && formValid}
           >
-            Apply voucher
+            Apply voucher code
           </button>
         </form>
       )}
-    </>
+    </VoucherFormStyles>
   );
 };
 

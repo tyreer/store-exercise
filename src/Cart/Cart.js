@@ -2,13 +2,19 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import CartItem from "../CartItem/CartItem";
 import { formatCurrency } from "../utils/utils";
-import Voucher from "../VoucherForm/VoucherForm";
+import VoucherForm from "../VoucherForm/VoucherForm";
 
 const CartStyles = styled.section`
-  min-height: 100vh;
   flex: 1;
-  background: lightgoldenrodyellow;
-  padding: ${props => props.theme.gutter};
+
+  @media (${props => props.theme.wideMedia}) {
+    width: 50%;
+  }
+
+  .total {
+    text-align: right;
+    font-weight: bold;
+  }
 `;
 
 const Cart = ({ inventory, setInventory, cartContents, setCartContents }) => {
@@ -22,6 +28,7 @@ const Cart = ({ inventory, setInventory, cartContents, setCartContents }) => {
   return (
     <CartStyles>
       <h1>Your cart</h1>
+      {!cartContents.length && <span>No items in cart</span>}
       {cartContents.map(product => (
         <CartItem
           key={product.id}
@@ -34,12 +41,12 @@ const Cart = ({ inventory, setInventory, cartContents, setCartContents }) => {
           setCartTotal={setCartTotal}
         />
       ))}
-      <Voucher
+      <VoucherForm
         cartContents={cartContents}
         cartTotal={cartTotal}
         setCartTotal={setCartTotal}
       />
-      <p>{`Cart total: ${formatCurrency(cartTotal)}`}</p>
+      <p className="total">{`Cart total: ${formatCurrency(cartTotal)}`}</p>
     </CartStyles>
   );
 };

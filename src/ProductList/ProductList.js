@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import ProductCard from "../ProductCard/ProductCard";
 
-const ProductListStyles = styled.div`
+const ProductListStyles = styled.section`
   @media (${props => props.theme.wideMedia}) {
     display: grid;
     grid-template-columns: 1fr 1fr;

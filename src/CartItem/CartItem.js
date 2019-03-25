@@ -6,6 +6,7 @@ const CartItemStyles = styled.div`
   border: 1px solid darkgrey;
   padding: ${props => props.theme.gutter};
   margin-bottom: ${props => props.theme.gutter};
+  max-width: 300px;
 
   h2 {
     font-size: 1.6rem;
@@ -18,7 +19,7 @@ const CartItemStyles = styled.div`
 
   button {
     width: ${props => props.theme.buttonWidth};
-    padding: 10px;
+    padding: 1rem;
     margin-left: auto;
     margin-top: ${props => props.theme.gutter};
     display: block;
