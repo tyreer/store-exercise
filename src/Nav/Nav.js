@@ -22,7 +22,7 @@ const Nav = ({ setCartOpen, cartOpen }) => {
   return (
     <NavStyles>
       <NavButton onClick={() => setCartOpen(false)} type="button">
-        store
+        home
       </NavButton>
       <NavButton onClick={() => setCartOpen(!cartOpen)} type="button">
         {cartOpen ? "X" : "cart"}

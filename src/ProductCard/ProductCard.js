@@ -74,9 +74,11 @@ const ProductCard = ({
     <ProductCardStyles>
       <h2>{product.name}</h2>
       <div>
+        <span>{product.category}</span>
+      </div>
+      <div>
         <span>{product.color}</span>
         <span>{formatCurrency(product.price)}</span>
-        <span>{product.category}</span>
       </div>
       <button
         type="button"
