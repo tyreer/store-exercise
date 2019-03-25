@@ -5,74 +5,70 @@ const Voucher = ({ cartTotal, setCartTotal, cartContents }) => {
   const [applied, setApplied] = useState(false);
   const [formValue, setFormValue] = useState("");
   const [formValid, setFormValid] = useState(false);
-  const voucherP0 =
+
+  // Voucher definitions
+  const voucherCondition15 =
     cartContents.some(item => item.category.includes("Footwear")) &&
     cartTotal > 7500;
-  const voucherP1 = cartTotal > 5000;
-  const voucherP2 = cartTotal > 500;
+  const voucherCondition10 = cartTotal > 5000;
+  const voucherCondition5 = cartTotal > 500;
 
+  // Apply only best possible voucher
   let voucherDiscount = 500;
-  if (voucherP0) {
+  if (voucherCondition15) {
     voucherDiscount = 1500;
-  } else if (voucherP1) {
+  } else if (voucherCondition10) {
     voucherDiscount = 1000;
   }
 
-  let code = "";
+  let discountCode;
   switch (voucherDiscount) {
-    case 500:
-      code = "5_OFF";
-      break;
     case 1000:
-      code = "10_OFF";
+      discountCode = "10_OFF";
       break;
     case 1500:
-      code = "15_OFF";
+      discountCode = "15_OFF";
       break;
     default:
-      return;
+      discountCode = "5_OFF";
   }
-
-  const postSubmitMessage = formValid
-    ? `Your ${formatCurrency(voucherDiscount)} discount has been applied`
-    : `Invalid code`;
 
   const handleSubmit = e => {
     e.preventDefault();
+
+    const submitDiscount = () => {
+      setCartTotal(cartTotal - voucherDiscount);
+      setApplied(true);
+      setFormValid(true);
+    };
+
     switch (formValue) {
       case "5_OFF":
-        if (voucherP2) {
-          setCartTotal(cartTotal - voucherDiscount);
-          setApplied(true);
-          setFormValid(true);
-        }
+        voucherCondition5 && submitDiscount();
         break;
       case "10_OFF":
-        if (voucherP1) {
-          setCartTotal(cartTotal - voucherDiscount);
-          setApplied(true);
-          setFormValid(true);
-        }
+        voucherCondition10 && submitDiscount();
         break;
       case "15_OFF":
-        if (voucherP0) {
-          setCartTotal(cartTotal - voucherDiscount);
-          setApplied(true);
-          setFormValid(true);
-        }
+        voucherCondition15 && submitDiscount();
         break;
       default:
+        setApplied(true);
     }
-    setApplied(true);
   };
 
-  //   eslint-disable-next-line consistent-return
+  const postSubmitMessage = formValid ? (
+    `Your ${formatCurrency(voucherDiscount)} discount has been applied`
+  ) : (
+    <span style={{ color: "red" }}>Invalid code</span>
+  );
+
   return (
     <>
-      {cartTotal > 500 && (
+      {voucherCondition5 && !formValid && (
         <p>
           {`You qualify for a ${formatCurrency(voucherDiscount)} discount. Use
-          code: ${code}`}
+          code: ${discountCode}`}
         </p>
       )}
       {applied && <p>{postSubmitMessage}</p>}
