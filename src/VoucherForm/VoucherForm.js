@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { formatCurrency } from "../utils/utils";
 
-const Voucher = ({ cartTotal, setCartTotal, cartContents }) => {
+const VoucherForm = ({ cartTotal, setCartTotal, cartContents }) => {
   const [applied, setApplied] = useState(false);
   const [formValue, setFormValue] = useState("");
   const [formValid, setFormValid] = useState(false);
@@ -21,6 +21,7 @@ const Voucher = ({ cartTotal, setCartTotal, cartContents }) => {
     voucherDiscount = 1000;
   }
 
+  // Set discount code
   let discountCode;
   switch (voucherDiscount) {
     case 1000:
@@ -33,6 +34,7 @@ const Voucher = ({ cartTotal, setCartTotal, cartContents }) => {
       discountCode = "5_OFF";
   }
 
+  // Handle form submit
   const handleSubmit = e => {
     e.preventDefault();
 
@@ -57,6 +59,7 @@ const Voucher = ({ cartTotal, setCartTotal, cartContents }) => {
     }
   };
 
+  // Determine message to display after submitting form
   const postSubmitMessage = formValid ? (
     `Your ${formatCurrency(voucherDiscount)} discount has been applied`
   ) : (
@@ -97,4 +100,4 @@ const Voucher = ({ cartTotal, setCartTotal, cartContents }) => {
   );
 };
 
-export default Voucher;
+export default VoucherForm;

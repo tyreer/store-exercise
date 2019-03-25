@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import CartItem from "../CartItem/CartItem";
 import { formatCurrency } from "../utils/utils";
-import Voucher from "../Voucher/Voucher";
+import Voucher from "../VoucherForm/VoucherForm";
 
 const CartStyles = styled.section`
   min-height: 100vh;
