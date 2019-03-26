@@ -1,11 +1,13 @@
 import React, { useState } from "react";
-import { formatCurrency } from "../utils/utils";
+import { func, number } from "prop-types";
 import styled from "styled-components";
+import { formatCurrency } from "../utils/utils";
+import { productListType } from "../propTypes/types";
 
 const VoucherForm = ({ cartTotal, setCartTotal, cartContents }) => {
   const VoucherFormStyles = styled.div`
     input {
-      margin: ${props => props.theme.gutter};
+      margin: ${({ theme }) => theme.gutter};
       padding: 0.5rem;
       border: 1px solid black;
     }
@@ -118,6 +120,12 @@ const VoucherForm = ({ cartTotal, setCartTotal, cartContents }) => {
       )}
     </VoucherFormStyles>
   );
+};
+
+VoucherForm.propTypes = {
+  cartContents: productListType.isRequired,
+  cartTotal: number.isRequired,
+  setCartTotal: func.isRequired
 };
 
 export default VoucherForm;

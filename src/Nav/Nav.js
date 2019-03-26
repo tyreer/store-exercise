@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { bool, func } from "prop-types";
+import { bool, func, number } from "prop-types";
 
 const NavStyles = styled.nav`
   flex: 1;
@@ -10,7 +10,7 @@ const NavStyles = styled.nav`
 const NavButton = styled.button`
   border: 5px solid black;
   flex: 1;
-  padding: ${props => props.theme.gutter};
+  padding: ${({ theme }) => theme.gutter};
   cursor: pointer;
 
   &:first-of-type {
@@ -18,7 +18,7 @@ const NavButton = styled.button`
   }
 
   @media (${props => props.theme.wideMedia}) {
-    margin-bottom: ${props => props.theme.gutter};
+    margin-bottom: ${({ theme }) => theme.gutter};
   }
 `;
 
@@ -37,7 +37,8 @@ const Nav = ({ setCartOpen, cartOpen, cartQuantity }) => {
 
 Nav.propTypes = {
   setCartOpen: func.isRequired,
-  cartOpen: bool.isRequired
+  cartOpen: bool.isRequired,
+  cartQuantity: number.isRequired
 };
 
 export default Nav;

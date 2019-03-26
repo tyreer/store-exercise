@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import { func } from "prop-types";
 import styled from "styled-components";
 import { animated, config, useSpring } from "react-spring";
 import CartItem from "../CartItem/CartItem";
 import { formatCurrency } from "../utils/utils";
 import VoucherForm from "../VoucherForm/VoucherForm";
+import { productListType } from "../propTypes/types";
 
 const CartStyles = styled.section`
   flex: 1;
@@ -62,6 +64,13 @@ const Cart = ({ inventory, setInventory, cartContents, setCartContents }) => {
       </CartStyles>
     </animated.div>
   );
+};
+
+Cart.propTypes = {
+  inventory: productListType.isRequired,
+  setInventory: func.isRequired,
+  cartContents: productListType.isRequired,
+  setCartContents: func.isRequired
 };
 
 export default Cart;

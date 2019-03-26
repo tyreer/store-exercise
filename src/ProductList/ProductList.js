@@ -1,13 +1,15 @@
 import React from "react";
+import { func } from "prop-types";
 import { animated, config, useSpring } from "react-spring";
 import styled from "styled-components";
 import ProductCard from "../ProductCard/ProductCard";
+import { productListType } from "../propTypes/types";
 
 const ProductListStyles = styled.section`
   @media (${props => props.theme.wideMedia}) {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-gap: ${props => props.theme.gutter};
+    grid-gap: ${({ theme }) => theme.gutter};
 
     h1 {
       font-size: 5rem;
@@ -44,6 +46,13 @@ const ProductList = ({
       </ProductListStyles>
     </animated.div>
   );
+};
+
+ProductList.propTypes = {
+  inventory: productListType.isRequired,
+  setInventory: func.isRequired,
+  cartContents: productListType.isRequired,
+  setCartContents: func.isRequired
 };
 
 export default ProductList;

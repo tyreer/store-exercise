@@ -1,16 +1,18 @@
 import React from "react";
 import styled from "styled-components";
+import { func, number } from "prop-types";
 import {
   updateItem,
   updateList,
   formatCurrency,
   mapColor
 } from "../utils/utils";
+import { productListType, productType } from "../propTypes/types";
 
 const CartItemStyles = styled.div`
   border: 1px solid darkgrey;
-  padding: ${props => props.theme.gutter};
-  margin-bottom: ${props => props.theme.gutter};
+  padding: ${({ theme }) => theme.gutter};
+  margin-bottom: ${({ theme }) => theme.gutter};
   max-width: 300px;
   border-left: 4px solid ${props => mapColor(props.category, props.theme)};
 
@@ -27,7 +29,7 @@ const CartItemStyles = styled.div`
     width: ${props => props.theme.buttonWidth};
     padding: 1rem;
     margin-left: auto;
-    margin-top: ${props => props.theme.gutter};
+    margin-top: ${({ theme }) => theme.gutter};
     display: block;
     background: darkgray;
     color: white;
@@ -38,7 +40,7 @@ const CartItemStyles = styled.div`
     color: ${props => mapColor(props.category, props.theme)};
     font-weight: bold;
     font-size: 1.2rem;
-    margin-bottom: ${props => props.theme.gutter};
+    margin-bottom: ${({ theme }) => theme.gutter};
   }
 `;
 
@@ -100,6 +102,16 @@ const CartItem = ({
       </button>
     </CartItemStyles>
   );
+};
+
+CartItem.propTypes = {
+  product: productType.isRequired,
+  inventory: productListType.isRequired,
+  setInventory: func.isRequired,
+  cartContents: productListType.isRequired,
+  setCartContents: func.isRequired,
+  cartTotal: number.isRequired,
+  setCartTotal: func.isRequired
 };
 
 export default CartItem;

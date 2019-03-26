@@ -1,16 +1,18 @@
 import React from "react";
 import styled from "styled-components";
+import { func } from "prop-types";
 import {
   updateItem,
   updateList,
   formatCurrency,
   mapColor
 } from "../utils/utils";
+import { productListType, productType } from "../propTypes/types";
 
 const ProductCardStyles = styled.div`
   border: 1px solid darkgrey;
-  padding: ${props => props.theme.gutter};
-  margin-bottom: ${props => props.theme.gutter};
+  padding: ${({ theme }) => theme.gutter};
+  margin-bottom: ${({ theme }) => theme.gutter};
   border-left: 4px solid ${props => mapColor(props.category, props.theme)};
 
   h2 {
@@ -20,7 +22,7 @@ const ProductCardStyles = styled.div`
   div {
     display: flex;
     justify-content: space-between;
-    margin-bottom: ${props => props.theme.gutter};
+    margin-bottom: ${({ theme }) => theme.gutter};
   }
 
   button {
@@ -101,6 +103,14 @@ const ProductCard = ({
       </button>
     </ProductCardStyles>
   );
+};
+
+ProductCard.propTypes = {
+  product: productType.isRequired,
+  inventory: productListType.isRequired,
+  setInventory: func.isRequired,
+  cartContents: productListType.isRequired,
+  setCartContents: func.isRequired
 };
 
 export default ProductCard;
