@@ -1,14 +1,20 @@
 import React from "react";
 import styled from "styled-components";
-import { updateItem, updateList, formatCurrency } from "../utils/utils";
+import {
+  updateItem,
+  updateList,
+  formatCurrency,
+  mapColor
+} from "../utils/utils";
 
 const ProductCardStyles = styled.div`
   border: 1px solid darkgrey;
   padding: ${props => props.theme.gutter};
   margin-bottom: ${props => props.theme.gutter};
+  border-left: 4px solid ${props => mapColor(props.category, props.theme)};
 
   h2 {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
   }
 
   div {
@@ -26,9 +32,15 @@ const ProductCardStyles = styled.div`
     color: white;
     cursor: pointer;
   }
-`;
 
-// TODO: Pass in category as prop to determine background gradient
+  .category {
+    background: ${props => mapColor(props.category, props.theme)};
+    padding: 0.5rem;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+`;
 
 const ProductCard = ({
   product,
@@ -71,10 +83,10 @@ const ProductCard = ({
   };
 
   return (
-    <ProductCardStyles>
+    <ProductCardStyles category={product.category}>
       <h2>{product.name}</h2>
       <div>
-        <span>{product.category}</span>
+        <span className="category">{product.category}</span>
       </div>
       <div>
         <span>{product.color}</span>

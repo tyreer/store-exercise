@@ -50,8 +50,8 @@ export default [
   {
     id: 7,
     name: "Cotton Shorts",
-    color: "Medium",
-    category: "Red Women’s Casualwear",
+    color: "Medium Red",
+    category: "Women’s Casualwear",
     price: 3000,
     quantity: 5
   },

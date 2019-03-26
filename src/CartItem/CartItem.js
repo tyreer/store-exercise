@@ -1,12 +1,18 @@
 import React from "react";
 import styled from "styled-components";
-import { updateItem, updateList, formatCurrency } from "../utils/utils";
+import {
+  updateItem,
+  updateList,
+  formatCurrency,
+  mapColor
+} from "../utils/utils";
 
 const CartItemStyles = styled.div`
   border: 1px solid darkgrey;
   padding: ${props => props.theme.gutter};
   margin-bottom: ${props => props.theme.gutter};
   max-width: 300px;
+  border-left: 4px solid ${props => mapColor(props.category, props.theme)};
 
   h2 {
     font-size: 1.6rem;
@@ -26,6 +32,13 @@ const CartItemStyles = styled.div`
     background: darkgray;
     color: white;
     cursor: pointer;
+  }
+
+  .category {
+    color: ${props => mapColor(props.category, props.theme)};
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: ${props => props.theme.gutter};
   }
 `;
 
@@ -68,10 +81,10 @@ const CartItem = ({
   };
 
   return (
-    <CartItemStyles>
+    <CartItemStyles category={product.category}>
       <h2>{product.name}</h2>
       <div>
-        <span>{product.category}</span>
+        <span className="category">{product.category}</span>
       </div>
       <div>
         <span>{product.color}</span>

@@ -17,3 +17,22 @@ export const formatCurrency = amount => {
   });
   return formatter.format(amount / 100);
 };
+
+export const mapColor = (category, theme) => {
+  switch (category) {
+    case "Men’s Footwear":
+      return theme.themeDarkBlue;
+    case "Women’s Footwear":
+      return theme.themeTeal;
+    case "Men’s Casualwear":
+      return theme.themeRed;
+    case "Women’s Casualwear":
+      return theme.themePurple;
+    case "Men's Formalwear":
+      return theme.themeGrey;
+    case "Women’s Formalwear":
+      return theme.themePink;
+    default:
+      return theme.themeGrey;
+  }
+};

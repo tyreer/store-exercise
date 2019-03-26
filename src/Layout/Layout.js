@@ -6,7 +6,15 @@ const theme = {
   wideMedia: "min-width: 700px",
   maxWidth: "1000px",
   gutter: "2rem",
-  buttonWidth: "100px"
+  buttonWidth: "100px",
+  themeGreen: "#a9eee6",
+  themeTeal: "#5cc1b3",
+  themeBeige: "#fefaec",
+  themeRed: "#f38181",
+  themePink: "#ff6473",
+  themePurple: "#625772",
+  themeDarkBlue: "#6173f4",
+  themeGrey: "#757882"
 };
 
 const LayoutStyles = styled.div`
