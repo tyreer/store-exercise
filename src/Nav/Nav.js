@@ -12,18 +12,26 @@ const NavButton = styled.button`
   flex: 1;
   padding: ${({ theme }) => theme.gutter};
   cursor: pointer;
-  background: ${({ theme }) => theme.themeGreen};
   font-weight: bold;
-
-  &:first-of-type {
-    border-right: none;
-    background: ${({ theme }) => theme.themePink};
-    color: white;
-    font-weight: bold;
-  }
+  transition: background-color 0.1s ease-in, color 0.1s ease-in;
 
   @media (${props => props.theme.wideMedia}) {
     margin-bottom: ${({ theme }) => theme.gutter};
+    &:hover {
+      background-color: ${({ theme }) => theme.themeGreen};
+    }
+  }
+
+  &:first-of-type {
+    font-weight: bold;
+
+    @media (${props => props.theme.wideMedia}) {
+      border-right: none;
+      &:hover {
+        background-color: ${({ theme }) => theme.themePink};
+        color: white;
+      }
+    }
   }
 `;
 

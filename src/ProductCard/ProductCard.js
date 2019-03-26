@@ -15,6 +15,15 @@ const ProductCardStyles = styled.div`
   margin-bottom: ${({ theme }) => theme.gutter};
   border-left: 4px solid ${props => mapColor(props.category, props.theme)};
 
+  @media (${props => props.theme.wideMedia}) {
+    &:hover {
+      button {
+        transform: translateX(2px) scale(1.02);
+        opacity: 0.75;
+      }
+    }
+  }
+
   h2 {
     font-size: 1.8rem;
   }
@@ -26,11 +35,13 @@ const ProductCardStyles = styled.div`
   }
 
   button {
+    transition: transform 0.1s, opacity 0.1s;
+    opacity: 0.5;
     width: ${({ theme }) => theme.buttonWidth};
     padding: 1rem;
     margin-left: auto;
     display: block;
-    background: darkgray;
+    background: black;
     font-weight: bold;
     color: white;
     cursor: pointer;
