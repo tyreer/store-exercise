@@ -14,7 +14,9 @@ const CartStyles = styled.section`
     width: 50%;
 
     h1 {
-      font-size: 5rem;
+      font-size: 6rem;
+      text-decoration: underline;
+      text-decoration-color: ${({ theme }) => theme.themeGreen};
     }
   }
 

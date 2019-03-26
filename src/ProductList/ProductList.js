@@ -12,7 +12,9 @@ const ProductListStyles = styled.section`
     grid-gap: ${({ theme }) => theme.gutter};
 
     h1 {
-      font-size: 5rem;
+      font-size: 6rem;
+      text-decoration: underline;
+      text-decoration-color: ${({ theme }) => theme.themePink};
     }
   }
 `;

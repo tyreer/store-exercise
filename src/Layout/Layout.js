@@ -20,7 +20,7 @@ const theme = {
 const LayoutStyles = styled.div`
   max-width: ${props => props.theme.maxWidth};
   margin: 0 auto;
-  padding: ${({ theme }) => theme.gutter};
+  padding: ${props => props.theme.gutter};
   display: flex;
   flex-direction: column;
   font-size: 1.6rem;

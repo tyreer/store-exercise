@@ -12,9 +12,14 @@ const NavButton = styled.button`
   flex: 1;
   padding: ${({ theme }) => theme.gutter};
   cursor: pointer;
+  background: ${({ theme }) => theme.themeGreen};
+  font-weight: bold;
 
   &:first-of-type {
     border-right: none;
+    background: ${({ theme }) => theme.themePink};
+    color: white;
+    font-weight: bold;
   }
 
   @media (${props => props.theme.wideMedia}) {

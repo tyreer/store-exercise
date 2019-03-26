@@ -10,7 +10,7 @@ import {
 import { productListType, productType } from "../propTypes/types";
 
 const ProductCardStyles = styled.div`
-  border: 1px solid darkgrey;
+  border: 2px solid lightgrey;
   padding: ${({ theme }) => theme.gutter};
   margin-bottom: ${({ theme }) => theme.gutter};
   border-left: 4px solid ${props => mapColor(props.category, props.theme)};
@@ -26,11 +26,12 @@ const ProductCardStyles = styled.div`
   }
 
   button {
-    width: ${props => props.theme.buttonWidth};
+    width: ${({ theme }) => theme.buttonWidth};
     padding: 1rem;
     margin-left: auto;
     display: block;
     background: darkgray;
+    font-weight: bold;
     color: white;
     cursor: pointer;
   }
