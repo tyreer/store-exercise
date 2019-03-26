@@ -10,12 +10,13 @@ const App = () => {
   const [cartOpen, setCartOpen] = useState(false);
   const [inventory, setInventory] = useState(mockData);
   const [cartContents, setCartContents] = useState([]);
+  const cartQuantity = cartContents.reduce((acc, cur) => acc + cur.quantity, 0);
   return (
     <Layout>
       <Nav
         setCartOpen={setCartOpen}
         cartOpen={cartOpen}
-        cartQuantity={cartContents.length}
+        cartQuantity={cartQuantity}
       />
       {!cartOpen && (
         <ProductList
