@@ -4,21 +4,21 @@ import styled from "styled-components";
 import { formatCurrency } from "../utils/utils";
 import { productListType } from "../propTypes/types";
 
-const VoucherForm = ({ cartTotal, setCartTotal, cartContents }) => {
-  const VoucherFormStyles = styled.div`
-    input {
-      margin: ${({ theme }) => theme.gutter};
-      padding: 0.5rem;
-      border: 1px solid black;
-    }
-    button {
-      padding: 1rem;
-      display: block;
-      background: black;
-      color: white;
-    }
-  `;
+const VoucherFormStyles = styled.div`
+  input {
+    margin: ${({ theme }) => theme.gutter};
+    padding: 0.5rem;
+    border: 1px solid black;
+  }
+  button {
+    padding: 1rem;
+    display: block;
+    background: black;
+    color: white;
+  }
+`;
 
+const VoucherForm = ({ cartTotal, setCartTotal, cartContents }) => {
   const [applied, setApplied] = useState(false);
   const [formValue, setFormValue] = useState("");
   const [formValid, setFormValid] = useState(false);
@@ -99,7 +99,7 @@ const VoucherForm = ({ cartTotal, setCartTotal, cartContents }) => {
       {applied && <p>{postSubmitMessage}</p>}
 
       {cartTotal > 0 && (
-        <form className="form" onSubmit={handleSubmit}>
+        <form className="form">
           <label htmlFor="voucher">
             Voucher code:
             <input
