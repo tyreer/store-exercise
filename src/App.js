@@ -12,7 +12,11 @@ const App = () => {
   const [cartContents, setCartContents] = useState([]);
   return (
     <Layout>
-      <Nav setCartOpen={setCartOpen} cartOpen={cartOpen} />
+      <Nav
+        setCartOpen={setCartOpen}
+        cartOpen={cartOpen}
+        cartQuantity={cartContents.length}
+      />
       {!cartOpen && (
         <ProductList
           inventory={inventory}

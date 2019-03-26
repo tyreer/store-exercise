@@ -24,8 +24,8 @@ const CartStyles = styled.section`
 
 const Cart = ({ inventory, setInventory, cartContents, setCartContents }) => {
   const [offset] = useSpring(() => ({
-    transform: `translateX(0)`,
-    from: { transform: "translateX(30vw)" },
+    to: { transform: "translateX(0)", opacity: 1 },
+    from: { transform: "translateX(30vw)", opacity: 0 },
     config: config.stiff
   }));
 

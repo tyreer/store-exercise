@@ -11,6 +11,7 @@ const NavButton = styled.button`
   border: 5px solid black;
   flex: 1;
   padding: ${props => props.theme.gutter};
+  cursor: pointer;
 
   &:first-of-type {
     border-right: none;
@@ -21,14 +22,14 @@ const NavButton = styled.button`
   }
 `;
 
-const Nav = ({ setCartOpen, cartOpen }) => {
+const Nav = ({ setCartOpen, cartOpen, cartQuantity }) => {
   return (
     <NavStyles>
       <NavButton onClick={() => setCartOpen(false)} type="button">
         products
       </NavButton>
       <NavButton onClick={() => setCartOpen(!cartOpen)} type="button">
-        {cartOpen ? "X" : "cart"}
+        {cartOpen ? "X" : `cart (${cartQuantity})`}
       </NavButton>
     </NavStyles>
   );

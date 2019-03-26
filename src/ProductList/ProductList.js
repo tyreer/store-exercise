@@ -22,7 +22,7 @@ const ProductList = ({
   setCartContents
 }) => {
   const [offset] = useSpring(() => ({
-    to: { transform: "translateY(0vh)", opacity: 1 },
+    to: { transform: "translateY(0)", opacity: 1 },
     from: { transform: "translateY(30vh)", opacity: 0 },
     config: config.stiff
   }));
