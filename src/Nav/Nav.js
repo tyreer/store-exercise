@@ -11,10 +11,13 @@ const NavButton = styled.button`
   border: 5px solid black;
   flex: 1;
   padding: ${props => props.theme.gutter};
-  margin-bottom: ${props => props.theme.gutter};
 
   &:first-of-type {
     border-right: none;
+  }
+
+  @media (${props => props.theme.wideMedia}) {
+    margin-bottom: ${props => props.theme.gutter};
   }
 `;
 
