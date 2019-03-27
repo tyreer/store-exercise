@@ -15,6 +15,10 @@ const VoucherFormStyles = styled.div`
     display: block;
     background: black;
     color: white;
+
+    &:disabled {
+      opacity: 0.2;
+    }
   }
 `;
 
