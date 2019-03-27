@@ -74,12 +74,12 @@ const CartItem = ({
 
     // Update cart
     const updatedCartContents = updateList(cartContents, cartItemIndex);
-
     setCartContents(updatedCartContents);
-    setCartTotal(
+
+    const newCartTotal =
       cartTotal -
-        cartContents[cartItemIndex].price * cartContents[cartItemIndex].quantity
-    );
+      cartContents[cartItemIndex].price * cartContents[cartItemIndex].quantity;
+    setCartTotal(newCartTotal < 0 ? 0 : newCartTotal);
   };
 
   return (

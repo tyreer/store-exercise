@@ -44,7 +44,7 @@ const Cart = ({ inventory, setInventory, cartContents, setCartContents }) => {
     <animated.div style={offset}>
       <CartStyles>
         <h1>Your cart</h1>
-        {!cartContents.length && <span>No items in cart</span>}
+        {cartContents.length === 0 && <span>No items in cart</span>}
         {cartContents.map(product => (
           <CartItem
             key={product.id}

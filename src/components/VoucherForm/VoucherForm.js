@@ -100,7 +100,7 @@ const VoucherForm = ({ cartTotal, setCartTotal, cartContents }) => {
           </p>
         </>
       )}
-      {applied && <p>{postSubmitMessage}</p>}
+      {applied && cartContents.length > 0 && <p>{postSubmitMessage}</p>}
 
       {cartTotal > 0 && (
         <form className="form">
