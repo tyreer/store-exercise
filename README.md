@@ -8,7 +8,7 @@ To run the app locally, use these commands from the root directory:
 - `yarn start`
 
 To build for production, run:
-- `yarn buld`
+- `yarn build`
 
 
 ## Code layout
@@ -26,8 +26,8 @@ All other UI elements are in the `src` folder:
 
 Back in the root directory:
 
-+ Mock data for the product items is stored in `mock-data.js`
-+ JavaScript linting config is set in `.eslintrc` for quality assurance and consistency in JS conventions
++ `mock-data.js` contains the product items
++ `.eslintrc` has JavaScript linting config for quality assurance and consistency in JS conventions
 
 ## Technologies
 
@@ -36,11 +36,11 @@ Back in the root directory:
 + React Spring
 + Styled Components
 
-I took this as an opportunity to get more familiar with using `React Hooks`. There are no class components and all state is managed via hooks.
+I took this as an opportunity to get more familiar with using `React Hooks`. There are no class components and all state is managed via hooks. 🤯
 
 Also explored the `Styled Components` css-in-js library. First time using it, but I thought it was great! Loved being able to nest rules as I'd done with `Sass` or `post-css css-next` projects, and generally write familiar CSS.
 
-`React Spring` is also pretty new to me, so it was great to use it for the section transitions.
+`React Spring` is also pretty new to me, so I tried it out for section transitions.
 
 
 
