@@ -3,9 +3,9 @@ import { func } from "prop-types";
 import styled from "styled-components";
 import { animated, config, useSpring } from "react-spring";
 import CartItem from "../CartItem/CartItem";
-import { formatCurrency } from "../utils/utils";
+import { formatCurrency } from "../../utils/utils";
 import VoucherForm from "../VoucherForm/VoucherForm";
-import { productListType } from "../propTypes/types";
+import { productListType } from "../../propTypes/types";
 
 const CartStyles = styled.section`
   flex: 1;

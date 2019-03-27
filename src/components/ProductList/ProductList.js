@@ -3,7 +3,7 @@ import { func } from "prop-types";
 import { animated, config, useSpring } from "react-spring";
 import styled from "styled-components";
 import ProductCard from "../ProductCard/ProductCard";
-import { productListType } from "../propTypes/types";
+import { productListType } from "../../propTypes/types";
 
 const ProductListStyles = styled.section`
   @media (${props => props.theme.wideMedia}) {

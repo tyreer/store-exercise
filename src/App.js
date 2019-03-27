@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import "./App.css";
-import Layout from "./Layout/Layout";
-import Nav from "./Nav/Nav";
-import Cart from "./Cart/Cart";
-import ProductList from "./ProductList/ProductList";
+import Layout from "./components/Layout/Layout";
+import Nav from "./components/Nav/Nav";
+import Cart from "./components/Cart/Cart";
+import ProductList from "./components/ProductList/ProductList";
 import mockData from "./mock-data";
 
 const App = () => {

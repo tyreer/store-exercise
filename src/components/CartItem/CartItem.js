@@ -6,8 +6,8 @@ import {
   updateList,
   formatCurrency,
   mapColor
-} from "../utils/utils";
-import { productListType, productType } from "../propTypes/types";
+} from "../../utils/utils";
+import { productListType, productType } from "../../propTypes/types";
 
 const CartItemStyles = styled.div`
   border: 1px solid darkgrey;

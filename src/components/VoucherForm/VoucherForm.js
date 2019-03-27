@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { func, number } from "prop-types";
 import styled from "styled-components";
-import { formatCurrency } from "../utils/utils";
-import { productListType } from "../propTypes/types";
+import { formatCurrency } from "../../utils/utils";
+import { productListType } from "../../propTypes/types";
 
 const VoucherFormStyles = styled.div`
   input {
