@@ -8,6 +8,7 @@ const NavStyles = styled.nav`
 `;
 
 const NavButton = styled.button`
+  margin: 0 2px;
   border: 5px solid black;
   flex: 1;
   padding: ${({ theme }) => theme.gutter};
@@ -23,10 +24,7 @@ const NavButton = styled.button`
   }
 
   &:first-of-type {
-    font-weight: bold;
-
     @media (${props => props.theme.wideMedia}) {
-      border-right: none;
       &:hover {
         background-color: ${({ theme }) => theme.themePink};
         color: white;
